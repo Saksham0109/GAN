@@ -11,6 +11,7 @@ class Generator(nn.Module):
             nn.Tanh())
     
     def forward(self,z):
+        z = z.view(len(z), self.z_dim, 1, 1)
         return self.gen(z)
 
     def make_block(self):
